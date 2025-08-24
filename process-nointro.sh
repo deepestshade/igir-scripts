@@ -22,8 +22,10 @@ for glob in "${batches[@]}"; do
     --dir-dat-name \
     --no-bios \
     --single \
+    --only-retail \
+    --filter-region USA,WORLD \
     --prefer-language EN \
-    --prefer-region USA,WORLD,EUR,JPN \
+    --prefer-region USA,WORLD,EUR \
     --prefer-revision newer \
     --zip-exclude "*.{chd,iso}"
 done

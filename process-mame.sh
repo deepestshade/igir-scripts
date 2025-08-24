@@ -16,12 +16,11 @@ for glob in "${batches[@]}"; do
   echo "Running batch: $glob"
 
   npx igir@latest copy zip test \
-    --dat "dat/MAME*" \
+    --dat "dat/MAME 0.279.zip" \
     --input "${input_dir}/${glob}" \
     --output "${output_dir}" \
-    --overwrite-invalid \
-    --merge-roms merged \
-    --dat-description-regex-exclude "/(China|Dutch|Italian|Italy|Korea|Russia|Ukraine)/i"
+    --dat-description-regex-exclude "/(Asia|Bootleg|China|Japan|Korea|Prototype)/i" \
+    --merge-roms split
 done
 
 # rename extensionless files to .chd

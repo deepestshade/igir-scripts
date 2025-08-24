@@ -8,6 +8,7 @@
 
 # MAMEROOT is the root folder of Mame
 MAMEROOT="/mnt/archive/downloads/MAME 0.279 ROMs (non-merged)"
+BIOSROOOT="/mnt/archive/downloads/MAME 0.279 ROMs (bios-devices)"
 DEST="./roms/MAME/roms"
 
 function process_game() {
@@ -29,6 +30,7 @@ function process_game() {
 	#	cp "${MAMEROOT}/titles/${ROMSET}.png" "${MAMEROOT}/titles.clones/${ROMSET}.png"
 	#	if [ "${ROMTYPE}" == "P" ]; then echo "This is a parent rom"; fi
 	ln -s "${MAMEROOT}/${ROMSET}.zip" "${DEST}/${ROMSET}.zip"
+	# ln -s "${BIOSROOT}/${ROMSET}.zip" "${DEST}/${ROMSET}.zip"
 }
 
 process_game "88games" "P" "" "H" "'88 Games"
