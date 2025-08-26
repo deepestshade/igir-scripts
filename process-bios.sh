@@ -1,6 +1,6 @@
 #!/bin/bash
 
-input_dir="roms/bios"
+input_dir="roms/BIOS"
 output_dir="roms-sorted/BIOS"
 
 npx igir@latest copy extract test \

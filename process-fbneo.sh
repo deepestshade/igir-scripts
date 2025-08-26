@@ -3,7 +3,7 @@
 input_dir="roms/FBNeo"
 output_dir="roms-sorted/FBNeo"
 
-npx igir@latest copy test \
+npx igir@latest copy zip test \
   --dat "dat/FBNeo*.zip" \
   --input "${input_dir}/" \
   --output "${output_dir}" \
