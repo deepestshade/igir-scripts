@@ -15,7 +15,7 @@ batches=(
 for glob in "${batches[@]}"; do
   echo "Running batch: $glob"
 
-  npx igir@latest copy zip test \
+  npx --yes igir@latest copy zip test \
     --dat "$dat_file" \
     --input "${input_dir}/${glob}" \
     --output "${output_dir}" \
