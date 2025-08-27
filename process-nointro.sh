@@ -1,7 +1,7 @@
 #!/bin/bash
 
-input_dir="roms/No-Intro"
-output_dir="roms-sorted/No-Intro"
+input_dir="input/roms/No-Intro"
+output_dir="output/roms-sorted/No-Intro"
 dat_file="dat/No-Intro (Reduced Set).zip"
 
 # Array of batch glob patterns

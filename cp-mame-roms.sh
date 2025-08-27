@@ -9,7 +9,7 @@
 # MAMEROOT is the root folder of Mame
 MAMEROOT="/mnt/archive/downloads/MAME 0.279 ROMs (non-merged)"
 BIOSROOOT="/mnt/archive/downloads/MAME 0.279 ROMs (bios-devices)"
-DEST="./roms/MAME/roms"
+DEST="input/roms/MAME/roms"
 
 function process_game() {
 	# ROMSET is the zip rom file name without extension (ex. mslug, pacman, atetris)

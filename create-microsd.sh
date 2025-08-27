@@ -1,7 +1,7 @@
 #!/bin/bash
 
-input_dir="roms-sorted"
-output_dir="microsd"
+input_dir="input/roms-sorted"
+output_dir="output/microsd"
 
 igir() {
   npx --yes igir@latest "$@"
@@ -45,3 +45,4 @@ igir copy zip test \
   --dat "dat/FBNeo*.zip" \
   --input  "${input_dir}/FBNeo" \
   --output "${output_dir}/fbneo"
+

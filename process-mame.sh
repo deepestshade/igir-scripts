@@ -1,7 +1,7 @@
 #!/bin/bash
 
-input_dir="./roms/MAME"
-output_dir="roms-sorted/MAME"
+input_dir="input/roms/MAME"
+output_dir="output/roms-sorted/MAME"
 
 shopt -s globstar nullglob
 
@@ -15,7 +15,7 @@ batches=(
 for glob in "${batches[@]}"; do
   echo "Running batch: $glob"
 
-  npx igir@latest copy zip test \
+  npx --yes igir@latest copy zip test \
     --dat "dat/MAME 0.279.zip" \
     --input "${input_dir}/${glob}" \
     --output "${output_dir}" \
