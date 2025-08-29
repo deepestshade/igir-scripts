@@ -1,7 +1,7 @@
 #!/bin/bash
 
 input_dir="input/roms-sorted"
-output_dir="output/microsd"
+output_dir="output/rg351v"
 
 igir() {
   npx --yes igir@latest "$@"
@@ -28,6 +28,13 @@ igir copy test \
   --input  "${input_dir}/Redump" \
   --output "${output_dir}/{es}"
 
+echo "Copying FBNeo files..."
+igir copy zip test \
+  --input-checksum-quick \
+  --dat "dat/FBNeo*.zip" \
+  --input  "${input_dir}/FBNeo" \
+  --output "${output_dir}/fbneo"
+
 echo "Copying MAME files..."
 igir copy zip test \
   --input-checksum-quick \
@@ -38,11 +45,4 @@ igir copy zip test \
 # Rename CHD files that lack extensions
 find "${output_dir}/mame" -mindepth 2 -type f ! -name "*.*" \
   -exec mv "{}" "{}.chd" \;
-
-echo "Copying FBNeo files..."
-igir copy zip test \
-  --input-checksum-quick \
-  --dat "dat/FBNeo*.zip" \
-  --input  "${input_dir}/FBNeo" \
-  --output "${output_dir}/fbneo"
 
