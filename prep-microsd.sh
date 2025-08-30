@@ -1,7 +1,7 @@
 #!/bin/bash
 
 input_dir="intermediate/roms-sorted"
-output_dir="output/rg351v"
+output_dir="output/EmulationStation"
 
 igir() {
   npx --yes igir@latest "$@"
