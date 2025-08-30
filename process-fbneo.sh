@@ -1,7 +1,7 @@
 #!/bin/bash
 
 input_dir="input/roms/FBNeo"
-output_dir="output/roms-sorted/FBNeo"
+output_dir="intermediate/roms-sorted/FBNeo"
 
 npx --yes igir@latest copy zip test \
   --dat "dat/FBNeo*.zip" \

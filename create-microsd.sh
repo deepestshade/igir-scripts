@@ -1,6 +1,6 @@
 #!/bin/bash
 
-input_dir="input/roms-sorted"
+input_dir="intermediate/roms-sorted"
 output_dir="output/rg351v"
 
 igir() {

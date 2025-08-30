@@ -1,7 +1,7 @@
 #!/bin/bash
 
 input_dir="input/roms/MAME"
-output_dir="output/roms-sorted/MAME"
+output_dir="intermediate/roms-sorted/MAME"
 
 shopt -s globstar nullglob
 
