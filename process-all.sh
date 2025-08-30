@@ -1,7 +1,12 @@
 #!/bin/bash
 
+echo "BIOS..."
 ./process-bios.sh
-./process-fbneo.sh
-./process-mame.sh
+echo "No-Intro..."
 ./process-nointro.sh
+echo "Redump..."        
 ./process-redump.sh
+echo "FBNeo..."
+./process-fbneo.sh
+echo "MAME..."
+./process-mame.sh

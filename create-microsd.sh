@@ -14,28 +14,28 @@ igir copy extract test \
   --input  "${input_dir}/BIOS" \
   --output "${output_dir}/bios"
 
-echo "Copying No-Intro files..."
+echo "Copying No-Intro roms..."
 igir copy zip test \
   --input-checksum-quick \
-  --dat "dat/No-Intro (Reduced Set).zip" \
+  --dat "dat/proper1g1r-collection.zip" \
   --input  "${input_dir}/No-Intro" \
   --output "${output_dir}/{es}"
 
-echo "Copying Redump files..."
+echo "Copying Redump roms..."
 igir copy test \
   --input-checksum-quick \
   --dat "dat/Redump*.zip" \
-  --input  "${input_dir}/Redump" \
+  --input "${input_dir}/Redump" \
   --output "${output_dir}/{es}"
 
-echo "Copying FBNeo files..."
+echo "Copying FBNeo roms..."
 igir copy zip test \
   --input-checksum-quick \
   --dat "dat/FBNeo*.zip" \
   --input  "${input_dir}/FBNeo" \
   --output "${output_dir}/fbneo"
 
-echo "Copying MAME files..."
+echo "Copying MAME roms..."
 igir copy zip test \
   --input-checksum-quick \
   --dat "dat/MAME 0.279.zip" \

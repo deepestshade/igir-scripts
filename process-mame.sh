@@ -6,10 +6,16 @@ output_dir="output/roms-sorted/MAME"
 shopt -s globstar nullglob
 
 batches=(
-  "**/[0]*" "**/[1]*" "**/[2]*" "**/[3]*" "**/[4]*" "**/[5]*" "**/[6]*" "**/[7]*" "**/[8]*" "**/[9]*"
-  "**/[Aa]*" "**/[Bb]*" "**/[Cc]*" "**/[Dd]*" "**/[Ee]*" "**/[Ff]*" "**/[Gg]*" "**/[Hh]*" "**/[Ii]*"
-  "**/[Jj]*" "**/[Kk]*" "**/[Ll]*" "**/[Mm]*" "**/[Nn]*" "**/[Oo]*" "**/[Pp]*" "**/[Qq]*" "**/[Rr]*"
-  "**/[Ss]*" "**/[Tt]*" "**/[Uu]*" "**/[Vv]*" "**/[Ww]*" "**/[Xx]*" "**/[Yy]*" "**/[Zz]*"
+  "**/[0-3]*"   # 0–3
+  "**/[4-6]*"   # 4–6
+  "**/[7-9]*"   # 7–9
+  "**/[A-Ca-c]*" # A–C
+  "**/[D-Fd-f]*" # D–F
+  "**/[G-Ig-i]*" # G–I
+  "**/[J-Lj-l]*" # J–L
+  "**/[M-Pm-p]*" # M–P
+  "**/[Q-Tq-t]*" # Q–T
+  "**/[U-Zu-z]*" # U–Z
 )
 
 for glob in "${batches[@]}"; do
@@ -19,8 +25,8 @@ for glob in "${batches[@]}"; do
     --dat "dat/MAME 0.279.zip" \
     --input "${input_dir}/${glob}" \
     --output "${output_dir}" \
-    --dat-description-regex-exclude "/(Asia|Bootleg|China|Japan|Korea|Prototype)/i" \
-    --merge-roms split
+    --merge-roms split \
+    --temp-dir ".igir_tmp"
 done
 
 # rename extensionless files to .chd
