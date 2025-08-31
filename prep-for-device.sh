@@ -67,7 +67,7 @@ igir copy clean test \
   --dat "./dat/Redump*.zip" \
   --input "${input_dir}/Redump" \
   --output "${output_dir}/${path_token}" \
-  --disable-cache
+  --disable-cache # Work-around for possible cache bug: https://github.com/emmercm/igir/discussions/1855
 
 echo "Copying FBNeo roms..."
 igir copy zip clean test \
@@ -81,7 +81,7 @@ igir copy zip clean test \
   --dat "$mame_dat" \
   --input  "$mame_input" \
   --output "${output_dir}/mame" \
-  --temp-dir ./igir_tmp
+  --temp-dir ./igir_tmp # Don't let CHD files exhaust tmpfs
 
 # Rename CHD files that lack extensions
 find "${output_dir}/mame" -mindepth 2 -type f ! -name "*.*" \
