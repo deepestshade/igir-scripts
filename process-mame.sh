@@ -10,7 +10,7 @@ npx --yes igir@latest copy zip clean test \
   --output "${output_dir}/MAME" \
   --input-checksum-quick \
   --input-checksum-archives never \
-  --merge-roms split \
+  --merge-roms split
 
 # rename extensionless files to .chd
 find ${output_dir} -mindepth 2 -type f ! -name "*.*" -exec mv "{}" "{}.chd" \;
@@ -22,4 +22,4 @@ npx --yes igir@latest copy zip clean test \
   --output "${output_dir}/MAME-2003-Plus" \
   --input-checksum-quick \
   --input-checksum-archives never \
-  --merge-roms split \
+  --merge-roms split
