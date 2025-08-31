@@ -40,7 +40,7 @@ igir copy zip test \
 
 echo "Copying MAME roms..."
 igir copy zip test \
-  --dat "dat/MAME 0.78zip" \
+  --dat "dat/MAME 0.78.zip" \
   --input  "${input_dir}/MAME-2003-Plus" \
   --output "${output_dir}/mame" \
   --temp-dir ".igir_tmp"
