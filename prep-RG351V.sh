@@ -1,7 +1,7 @@
 #!/bin/bash
 
 input_dir="intermediate"
-output_dir="output/EmulationStation"
+output_dir="output/RG351V
 
 igir() {
   npx --yes igir@latest \
@@ -39,8 +39,8 @@ igir copy zip test \
 
 echo "Copying MAME roms..."
 igir copy zip test \
-  --dat "dat/MAME 0.279.zip" \
-  --input  "${input_dir}/MAME" \
+  --dat "dat/MAME 0.78zip" \
+  --input  "${input_dir}/MAME-2003-Plus" \
   --output "${output_dir}/mame" \
   --temp-dir ".igir_tmp"
 
