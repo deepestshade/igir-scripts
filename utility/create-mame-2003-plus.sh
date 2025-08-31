@@ -8,7 +8,7 @@
 
 # MAMEROOT is the root folder of Mame
 MAMEROOT="/mnt/archive/downloads/mame-2003-plus-reference-set/roms"
-DEST="input/MAME-2003-Plus/roms"
+DEST="../input/MAME-2003-Plus/roms"
 
 function process_game() {
 	# ROMSET is the zip rom file name without extension (ex. mslug, pacman, atetris)
