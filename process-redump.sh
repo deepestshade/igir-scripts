@@ -7,6 +7,8 @@ npx --yes igir@latest copy test \
   --dat "dat/Redump*.zip" \
   --input "${input_dir}/" \
   --output "${output_dir}" \
+  --input-checksum-max CRC32 \
+  --input-checksum-archives never \
   --dir-dat-name \
   --no-bios \
   --only-retail \

@@ -25,8 +25,9 @@ for glob in "${batches[@]}"; do
     --dat "dat/MAME 0.279.zip" \
     --input "${input_dir}/${glob}" \
     --output "${output_dir}" \
+    --input-checksum-quick \
+    --input-checksum-archives never \
     --merge-roms split \
-    --temp-dir ".igir_tmp"
 done
 
 # rename extensionless files to .chd

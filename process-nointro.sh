@@ -9,6 +9,8 @@ npx --yes igir@latest copy zip test \
   --input "${input_dir}" \
   --output "${output_dir}" \
   --dir-dat-name \
+  --input-checksum-max CRC32 \
+  --input-checksum-archives never \
   --no-bios \
   --single \
   --only-retail \
