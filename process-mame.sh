@@ -1,7 +1,7 @@
 #!/bin/bash
 
-input_dir="input/MAME"
-output_dir="intermediate/MAME"
+input_dir="./input/MAME"
+output_dir="./intermediate/MAME"
 
 shopt -s globstar nullglob
 
@@ -22,7 +22,7 @@ for glob in "${batches[@]}"; do
   echo "Running batch: $glob"
 
   npx --yes igir@latest copy zip test \
-    --dat "dat/MAME 0.279.zip" \
+    --dat "./dat/MAME 0.279.zip" \
     --input "${input_dir}/${glob}" \
     --output "${output_dir}" \
     --input-checksum-quick \

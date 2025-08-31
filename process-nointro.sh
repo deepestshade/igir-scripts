@@ -1,10 +1,10 @@
 #!/bin/bash
 
-input_dir="input/No-Intro"
-output_dir="intermediate/No-Intro"
-dat_file="dat/proper1g1r-collection.zip"
+input_dir="./input/No-Intro"
+output_dir="./intermediate/No-Intro"
+dat_file="./dat/proper1g1r-collection.zip"
 
-npx --yes igir@latest copy zip test \
+npx --yes igir@latest copy zip clean test \
   --dat "${dat_file}" \
   --input "${input_dir}" \
   --output "${output_dir}" \

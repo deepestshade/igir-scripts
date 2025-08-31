@@ -1,7 +1,7 @@
 #!/bin/bash
 
 input_dir="intermediate"
-output_dir="output/RG351V
+output_dir="output/RG351V"
 
 igir() {
   npx --yes igir@latest \
@@ -33,8 +33,9 @@ igir copy test \
 
 echo "Copying FBNeo roms..."
 igir copy zip test \
-  --dat "dat/FBNeo*.zip" \
-  --input  "${input_dir}/FBNeo" \
+  --dat "dat/FBNeo 1.0.0.3*.zip" \
+  --dat-name-regex "/arcade/i" \
+  --input  "${input_dir}/FBNeo-1.0.0.3" \
   --output "${output_dir}/fbneo"
 
 echo "Copying MAME roms..."

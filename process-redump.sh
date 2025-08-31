@@ -1,10 +1,10 @@
 #!/bin/bash
 
-input_dir="input/Redump"
-output_dir="intermediate/Redump"
+input_dir="./input/Redump"
+output_dir="./intermediate/Redump"
 
-npx --yes igir@latest copy test \
-  --dat "dat/Redump*.zip" \
+npx --yes igir@latest copy clean test \
+  --dat "./dat/Redump*.zip" \
   --input "${input_dir}/" \
   --output "${output_dir}" \
   --input-checksum-max CRC32 \
