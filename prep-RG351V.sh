@@ -1,7 +1,7 @@
 #!/bin/bash
 
-input_dir="intermediate"
-output_dir="output/RG351V"
+input_dir="./intermediate"
+output_dir="./output/RG351V"
 
 igir() {
   npx --yes igir@latest \
@@ -20,27 +20,27 @@ igir copy extract clean test \
 
 echo "Copying No-Intro roms..."
 igir copy zip clean test \
-  --dat "dat/proper1g1r-collection.zip" \
+  --dat "./dat/proper1g1r-collection.zip" \
   --input  "${input_dir}/No-Intro" \
   --output "${output_dir}/{es}"
 
 echo "Copying Redump roms..."
 igir copy clean test \
-  --dat "dat/Redump*.zip" \
+  --dat "./dat/Redump*.zip" \
   --input "${input_dir}/Redump" \
   --output "${output_dir}/{es}" \
   --disable-cache
 
 echo "Copying FBNeo roms..."
 igir copy zip clean test \
-  --dat "dat/FBNeo 1.0.0.3*.zip" \
+  --dat "./dat/FBNeo 1.0.0.3*.zip" \
   --dat-name-regex "/arcade/i" \
   --input  "${input_dir}/FBNeo-1.0.0.3" \
   --output "${output_dir}/fbneo"
 
 echo "Copying MAME roms..."
 igir copy zip clean test \
-  --dat "dat/MAME 0.78.zip" \
+  --dat "./dat/MAME 0.78.zip" \
   --input  "${input_dir}/MAME-2003-Plus" \
   --output "${output_dir}/mame" \
   --temp-dir ".igir_tmp"
