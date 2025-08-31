@@ -1,6 +1,6 @@
 #!/bin/bash
 
-input_dir="intermediate/roms-sorted"
+input_dir="intermediate"
 output_dir="output/EmulationStation"
 
 igir() {

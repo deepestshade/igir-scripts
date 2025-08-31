@@ -1,7 +1,7 @@
 #!/bin/bash
 
-input_dir="input/roms/BIOS"
-output_dir="intermediate/roms-sorted/BIOS"
+input_dir="input/BIOS"
+output_dir="intermediate/BIOS"
 
 npx --yes igir@latest copy extract test \
   --dat "https://raw.githubusercontent.com/libretro/libretro-database/master/dat/System.dat" \
