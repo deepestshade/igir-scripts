@@ -33,7 +33,7 @@ case "$TARGET" in
         ;;
     *)
         echo "Error: Unknown target '$TARGET'"
-        echo "Available targets: retroarch, rg351v"
+        echo "Available targets: retroarch, rg351v, brick"
         exit 1
         ;;
 esac
