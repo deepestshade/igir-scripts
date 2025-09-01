@@ -15,7 +15,7 @@ fi
 case "$TARGET" in
     "retroarch")
         mame_dat="./dat/MAME 0.279.zip"
-        mame_input="${input_dir}/MAME"
+        mame_input="${input_dir}/MAME-latest"
         output_dir="./output/RetroArch"
         path_token="{es}"
         ;;
@@ -66,8 +66,7 @@ echo "Copying Redump roms..."
 igir copy clean test \
   --dat "./dat/Redump*.zip" \
   --input "${input_dir}/Redump" \
-  --output "${output_dir}/${path_token}" \
-  --disable-cache # Work-around for possible cache bug: https://github.com/emmercm/igir/discussions/1855
+  --output "${output_dir}/${path_token}"
 
 echo "Copying FBNeo roms..."
 igir copy zip clean test \
