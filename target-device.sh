@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 TARGET="$1"
 input_dir="./intermediate"
 
@@ -14,7 +16,7 @@ fi
 # Set target-specific configuration
 case "$TARGET" in
     "retroarch")
-        mame_dat="./dat/MAME 0.279.zip"
+        mame_dat="./dat/MAME 0.280.zip"
         mame_input="${input_dir}/MAME-latest"
         output_dir="./output/RetroArch"
         path_token="{es}"
