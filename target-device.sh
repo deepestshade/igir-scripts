@@ -2,11 +2,11 @@
 
 set -euo pipefail
 
-TARGET="$1"
+target="$1"
 input_dir="./intermediate"
 
 # Validate target argument
-if [[ -z "$TARGET" ]]; then
+if [[ -z "$target" ]]; then
     echo "Error: Target not specified"
     echo "Usage: $0 <target>"
     echo "Available targets: retroarch, rg351v, brick"
@@ -14,7 +14,7 @@ if [[ -z "$TARGET" ]]; then
 fi
 
 # Set target-specific configuration
-case "$TARGET" in
+case "$target" in
     "retroarch")
         mame_dat="./dat/MAME 0.280.zip"
         mame_input="${input_dir}/MAME-latest"
@@ -34,13 +34,13 @@ case "$TARGET" in
         path_token="{batocera}"
         ;;
     *)
-        echo "Error: Unknown target '$TARGET'"
+        echo "Error: Unknown target '$target'"
         echo "Available targets: retroarch, rg351v, brick"
         exit 1
         ;;
 esac
 
-echo "Preparing ROMs for target: $TARGET"
+echo "Preparing ROMs for target: $target"
 echo "Output directory: $output_dir"
 
 igir() {
@@ -88,4 +88,4 @@ igir copy zip clean test \
 find "${output_dir}/mame" -mindepth 2 -type f ! -name "*.*" \
   -exec mv "{}" "{}.chd" \;
 
-echo "ROM preparation complete for $TARGET!"
+echo "ROM preparation complete for $target!"
