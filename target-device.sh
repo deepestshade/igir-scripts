@@ -17,22 +17,26 @@ fi
 
 # Set target-specific configuration
 case "$target" in
+    # TRIMUI Brick Hammer (MAME 2003-Plus, Batocera)
     "brick")
         device="Brick"
         mame_version="0.78"
         path_token="{batocera}"
         ;;
+    # RetroArch (MAME-Latest, EmulationStation)
     "retroarch")
         device="RetroArch"
         mame_version="0.280"
         path_token="{es}"
         ;;
+    # Anbernic RG351V (MAME 2003-Plus, EmulationStation)
     "rg351v")
         device="RG351V"
         mame_version="0.78"
         path_token="{es}"
         ;;
-     "rpi4")
+    # Raspberry Pi 4 (MAME 0.268, Batocera)
+    "rpi4")
         device="RPi4"
         mame_version="0.268"
         path_token="{batocera}"
