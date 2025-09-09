@@ -6,7 +6,7 @@ current_version="0.280"
 
 # MAME latest
 npx --yes igir@latest copy zip clean test \
-  --dat "./dat/MAME ${current_version}.zip" \
+  --dat "./dat/MAME/MAME-latest.zip" \
   --input "${input_dir}/MAME" \
   --output "${output_dir}/MAME-${current_version}" \
   --input-checksum-quick \
