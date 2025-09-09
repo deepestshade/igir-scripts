@@ -60,7 +60,7 @@ echo "Copying BIOS files..."
 igir copy extract clean test \
   --dat "https://raw.githubusercontent.com/libretro/libretro-database/master/dat/System.dat" \
   --input  "${input_dir}/BIOS" \
-  --output "${output_dir}${device}/bios"
+  --output "${output_dir}/${device}/bios"
 
 echo "Copying No-Intro roms..."
 igir copy zip clean test \
