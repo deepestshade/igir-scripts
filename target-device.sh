@@ -3,39 +3,43 @@
 set -euo pipefail
 
 target="$1"
+dat_dir="./dat"
 input_dir="./intermediate"
+output_dir="./output"
 
 # Validate target argument
 if [[ -z "$target" ]]; then
     echo "Error: Target not specified"
     echo "Usage: $0 <target>"
-    echo "Available targets: retroarch, rg351v, brick"
+    echo "Available targets: brick, retroarch, rg351v, rpi4"
     exit 1
 fi
 
 # Set target-specific configuration
 case "$target" in
+    "brick")
+        device="Brick"
+        mame_version="0.78"
+        path_token="{batocera}"
+        ;;
     "retroarch")
-        mame_dat="./dat/MAME 0.280.zip"
-        mame_input="${input_dir}/MAME-latest"
-        output_dir="./output/RetroArch"
+        device="RetroArch"
+        mame_version="0.280"
         path_token="{es}"
         ;;
     "rg351v")
-        mame_dat="./dat/MAME 0.78.zip"
-        mame_input="${input_dir}/MAME-2003-Plus"
-        output_dir="./output/RG351V"
+        device="RG351V"
+        mame_version="0.78"
         path_token="{es}"
         ;;
-   "brick")
-        mame_dat="./dat/MAME 0.78.zip"
-        mame_input="${input_dir}/MAME-2003-Plus"
-        output_dir="./output/Brick"
+     "rpi4")
+        device="RPi4"
+        mame_version="0.268"
         path_token="{batocera}"
         ;;
     *)
         echo "Error: Unknown target '$target'"
-        echo "Available targets: retroarch, rg351v, brick"
+        echo "Available targets: brick, retroarch, rg351v, rpi4"
         exit 1
         ;;
 esac
@@ -56,36 +60,36 @@ echo "Copying BIOS files..."
 igir copy extract clean test \
   --dat "https://raw.githubusercontent.com/libretro/libretro-database/master/dat/System.dat" \
   --input  "${input_dir}/BIOS" \
-  --output "${output_dir}/bios"
+  --output "${output_dir}${device}/bios"
 
 echo "Copying No-Intro roms..."
 igir copy zip clean test \
-  --dat "./dat/proper1g1r-collection.zip" \
+  --dat "${dat_dir}/proper1g1r-collection.zip" \
   --input  "${input_dir}/No-Intro" \
-  --output "${output_dir}/${path_token}"
+  --output "${output_dir}/${device}/${path_token}"
 
 echo "Copying Redump roms..."
 igir copy clean test \
-  --dat "./dat/Redump*.zip" \
+  --dat "${dat_dir}/Redump*.zip" \
   --input "${input_dir}/Redump" \
-  --output "${output_dir}/${path_token}"
+  --output "${output_dir}/${device}/${path_token}"
 
 echo "Copying FBNeo roms..."
 igir copy zip clean test \
-  --dat "./dat/FBNeo 1.0.0.3*.zip" \
+  --dat "${dat_dir}/FBNeo 1.0.0.3*.zip" \
   --dat-name-regex "/arcade/i" \
   --input  "${input_dir}/FBNeo-1.0.0.3" \
-  --output "${output_dir}/fbneo"
+  --output "${output_dir}/${device}/fbneo"
 
 echo "Copying MAME roms..."
 igir copy zip clean test \
-  --dat "$mame_dat" \
-  --input  "$mame_input" \
-  --output "${output_dir}/mame" \
-  --temp-dir ./igir_tmp # Don't let CHD files exhaust tmpfs
+  --dat "${dat_dir}/MAME ${mame_version}.zip" \
+  --input "${input_dir}/MAME-latest" \
+  --input "${input_dir}/MAME-rollback" \
+  --output "${output_dir}/${device}/mame"
 
 # Rename CHD files that lack extensions
-find "${output_dir}/mame" -mindepth 2 -type f ! -name "*.*" \
+find "${output_dir}/${device}/mame" -mindepth 2 -type f ! -name "*.*" \
   -exec mv "{}" "{}.chd" \;
 
 echo "ROM preparation complete for $target!"

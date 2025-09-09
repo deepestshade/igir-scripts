@@ -14,13 +14,3 @@ npx --yes igir@latest copy zip clean test \
 
 # rename extensionless files to .chd
 find "${output_dir}/MAME-${current_version}" -mindepth 2 -type f ! -name "*.*" -exec mv "{}" "{}.chd" \;
-
-# # MAME-2003-Plus
-npx --yes igir@latest copy zip clean test \
-  --dat "./dat/MAME 0.78.zip" \
-  --input "${input_dir}/MAME-2003-Plus" \
-  --output "${output_dir}/MAME-2003-Plus" \
-  --input-checksum-quick \
-  --input-checksum-archives never
-
-find "${output_dir}/MAME-2003-Plus" -mindepth 2 -type f ! -name "*.*" -exec mv "{}" "{}.chd" \;
