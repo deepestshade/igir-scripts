@@ -5,7 +5,7 @@ set -euo pipefail
 target="$1"
 dat_dir="./dat"
 input_dir="./roms-filtered"
-output_dir="./roms-for-devices"
+output_dir="./roms-per-device"
 mame_rollback_dir="./roms-raw/MAME/rollback"
 
 # Validate target argument
