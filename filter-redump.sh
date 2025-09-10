@@ -1,7 +1,7 @@
 #!/bin/bash
 
-input_dir="./input/Redump"
-output_dir="./intermediate/Redump"
+input_dir="./roms-raw/Redump"
+output_dir="./roms-filtered/Redump"
 
 npx --yes igir@latest copy clean test \
   --dat "./dat/Redump*.zip" \

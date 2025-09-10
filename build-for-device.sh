@@ -4,9 +4,9 @@ set -euo pipefail
 
 target="$1"
 dat_dir="./dat"
-input_dir="./intermediate"
-output_dir="./output"
-mame_rollback_dir="./input/MAME/rollback"
+input_dir="./roms-filtered"
+output_dir="./roms-for-devices"
+mame_rollback_dir="./roms-raw/MAME/rollback"
 
 # Validate target argument
 if [[ -z "$target" ]]; then

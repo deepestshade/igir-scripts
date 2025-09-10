@@ -1,7 +1,7 @@
 #!/bin/bash
 
-input_dir="./input"
-output_dir="./intermediate" 
+input_dir="./roms-raw"
+output_dir="./roms-filtered" 
 current_version="0.280"
 
 npx --yes igir@latest copy zip clean test \

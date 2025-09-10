@@ -1,7 +1,7 @@
 #!/bin/bash
 
-input_dir="./input/No-Intro"
-output_dir="./intermediate/No-Intro"
+input_dir="./roms-raw/No-Intro"
+output_dir="./roms-filtered/No-Intro"
 dat_file="./dat/proper1g1r-collection.zip"
 
 npx --yes igir@latest copy zip clean test \
