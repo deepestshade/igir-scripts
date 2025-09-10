@@ -1,7 +1,7 @@
 #!/bin/bash
 
-input_dir="input/FBNeo-1.0.0.3"
-output_dir="intermediate/FBNeo-1.0.0.3"
+input_dir="./input/FBNeo-1.0.0.3"
+output_dir="./intermediate/FBNeo-1.0.0.3"
 
 npx --yes igir@latest copy zip clean test \
   --dat "dat/FBNeo 1.0.0.3*.zip" \
