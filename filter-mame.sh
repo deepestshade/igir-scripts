@@ -18,8 +18,7 @@ for version in "${latest_version}" "0.268" "0.78"; do
     --input-checksum-archives never
 done
 
-# create symlink for latest version 
-ln -sf "${output_dir}/MAME/MAME-${latest_version}" "${output_dir}/MAME/MAME-latest"
+ln -sf "MAME-${latest_version}" "./roms-filtered/MAME/MAME-latest"
 
 # rename extensionless files to .chd
 find "${output_dir}/MAME" -mindepth 2 -type f ! -name "*.*" \
