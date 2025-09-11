@@ -22,7 +22,7 @@ Each stage reduces the size of the ROM sets and arranges them into the folder an
 This stage contains symlinks to a 5TB external drive with a mix of downloaded and hand-organized ROMs.  
 Sometimes I extract archives directly to `/mnt/archive/roms` and select only the systems I care about (especially with No-Intro and Redump).
 
-Sources typically include:
+My sources include:
 
 - **BIOS** → TOSEC Firmware and Operating Systems Collection  
 - **FBNeo** → FBNeo 1.0.0.3 collection  
@@ -77,7 +77,21 @@ input_dir="./roms-raw/No-Intro"
 output_dir="./roms-filtered/No-Intro"
 dat_file="./dat/proper1g1r-collection.zip"
 
-npx --yes igir@latest copy zip clean test   --dat "${dat_file}"   --input "${input_dir}"   --output "${output_dir}"   --dir-dat-name   --input-checksum-max CRC32   --input-checksum-archives never   --no-bios   --single   --only-retail   --filter-region USA,WORLD   --prefer-language EN   --prefer-region USA,WORLD,EUR   --prefer-revision newer   --zip-exclude "*.{chd,iso}"
+npx --yes igir@latest copy zip clean test \
+  --dat "${dat_file}" \
+  --input "${input_dir}" \
+  --output "${output_dir}" \
+  --dir-dat-name \
+  --input-checksum-max CRC32 \
+  --input-checksum-archives never \
+  --no-bios \
+  --single \
+  --only-retail \
+  --filter-region USA,WORLD \
+  --prefer-language EN \
+  --prefer-region USA,WORLD,EUR \
+  --prefer-revision newer \
+  --zip-exclude "*.{chd,iso}"
 ```
 
 Example output:
