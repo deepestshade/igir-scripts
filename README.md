@@ -13,21 +13,21 @@ I’m sharing these scripts as a reference for others to adapt into their own wo
 
 `External Drive` → `roms-raw` → `roms-filtered` → `roms-per-device`
 
-Each stage reduces the size of the ROM sets and arranges them into the folder and naming structures expected by different emulators and devices.
+Each stage reduces the size of the ROM sets and arranges them into the folder and naming structures expected by different emulators and front-ends.
 
 ---
 
 ### 1. `roms-raw` (~2TB, mostly unfiltered)
 
 This stage contains symlinks to a 5TB external drive with a mix of downloaded and hand-organized ROMs.  
-Sometimes I extract archives directly to `/mnt/archive/roms` and select only the systems I care about (especially with No-Intro and Redump).
+Sometimes I extract archives directly to `/mnt/archive/roms` and select only the roms/systems that I care about (especially with No-Intro and Redump).
 
-My sources include:
+I will not go into sourcing ROMs here, but in general my sources include:
 
-- **BIOS** → TOSEC Firmware and Operating Systems Collection  
-- **FBNeo** → FBNeo 1.0.0.3 collection  
-- **MAME** → Pleasuredome ROM sets  
-- **No-Intro** → PropeR 1G1R Collection  
+- **BIOS** → A "TOSEC Firmware and Operating Systems Collection"
+- **FBNeo** → A FBNeo 1.0.0.3 collection  
+- **MAME** → The Pleasuredome ROM sets  
+- **No-Intro** → A "PropeR 1G1R Collection"  
 - **Redump** → Individually sourced disc images  
 
 Directory structure:
@@ -52,7 +52,7 @@ roms-raw
 This stage filters ROMs down to more manageable sets:
 
 - **Consoles** → 1G1R (1 Game 1 Region)  
-- **Arcade (MAME/FBNeo)** → Removes most unused ROMs via DAT filters  
+- **Arcade (MAME/FBNeo)** → Reduces the roms sets down to top-tier titles only
 
 Tools and DATs used:
 
@@ -65,10 +65,10 @@ Tools and DATs used:
    - Dump status: *Good*  
    - Language: *English*  
    - Best Games: *Very Good (80–90)* + better titles  
-4. **No-Intro** → PropeR 1G1R Collection  
-5. **Redump** → Selected disc images  
+4. **No-Intro** → The "PropeR 1G1R Collection" included DATs 
+5. **Redump** → [Redump DATs](http://redump.org) 
 
-Example result: MAME reduced from **~50,000 ROMs (~1.2TB)** to **under 500 (~6GB)**.
+Example result: MAME reduced from **~50,000 ROMs (~1.2TB)** to **under 500 (~6GB)**. 
 
 Filtering is handled by `filter-*.sh` scripts (e.g. `filter-nointro.sh`):
 
@@ -138,14 +138,16 @@ roms-filtered
 
 Finally, the `roms-filtered` directory is sorted and tailored for each target device.  
 
-Currently supported:
+I currently use the following devices and front-ends:
 
 1. **Laptop** running [RetroArch](https://www.retroarch.com)  
 2. **Raspberry Pi 4** running [Batocera](https://batocera.org)  
 3. **Anbernic RG351V** running [AmberElec](https://amberelec.org)  
 4. **TRIMUI Brick** running [Knulli](https://knulli.org)  
 
-Each OS uses different emulators and folder names. Scripts (e.g. `target-device.sh`) handle this by selecting the correct MAME version and structure:
+Each OS uses different emulators and annoyingly slightly different folder names. 
+
+The scripts `target-device.sh` handles this by selecting the correct MAME version and structure for each target device:
 
 ```bash
 case "$target" in
@@ -181,7 +183,7 @@ case "$target" in
 esac
 ```
 
-Output structure example:
+Output structure:
 
 ```
 roms-per-device
