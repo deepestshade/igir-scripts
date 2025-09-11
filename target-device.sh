@@ -6,7 +6,6 @@ target="$1"
 dat_dir="./dat"
 input_dir="./roms-filtered"
 output_dir="./roms-per-device"
-mame_rollback_dir="./roms-raw/MAME/rollback"
 
 # Validate target argument
 if [[ -z "$target" ]]; then
@@ -88,9 +87,8 @@ igir copy zip clean test \
 
 echo "Copying MAME roms..."
 igir copy zip clean test \
-  --dat "${dat_dir}/MAME/filtered/MAME ${mame_version}.zip" \
-  --input "${input_dir}/MAME-latest" \
-  --input "${mame_rollback_dir}" \
+  --dat "${dat_dir}/MAME/MAME-${mame_version}.zip" \
+  --input "${input_dir}/MAME-${mame_version}" \
   --output "${output_dir}/${device}/mame"
 
 # Rename CHD files that lack extensions
