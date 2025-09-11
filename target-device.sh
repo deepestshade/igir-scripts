@@ -88,7 +88,7 @@ igir copy zip clean test \
 echo "Copying MAME roms..."
 igir copy zip clean test \
   --dat "${dat_dir}/MAME/MAME-${mame_version}.zip" \
-  --input "${input_dir}/MAME-${mame_version}" \
+  --input "${input_dir}/MAME/MAME-${mame_version}" \
   --output "${output_dir}/${device}/mame"
 
 # Rename CHD files that lack extensions
