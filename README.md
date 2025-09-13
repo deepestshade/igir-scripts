@@ -147,7 +147,7 @@ I currently use the following devices and front-ends:
 
 Each OS uses different emulators and annoyingly slightly different folder names. 
 
-The script `filter-for-devices.sh` handles this by selecting the correct MAME version and structure for each target device:
+The script `filter-roms-for-devices.sh` handles this by selecting the correct MAME version and structure for each target device:
 
 ```bash
 case "$target" in
@@ -218,6 +218,6 @@ roms-for-devices
 `filter-raw-roms.sh`
 ↓
 - **roms-filtered** → Reduced using DATs (1G1R, best arcade titles)  
-`filter-for-devices.sh`
+`filter-roms-for-devices.sh`
 ↓
 - **roms-for-devices** → Final device-specific structures, tuned for compatibility  
