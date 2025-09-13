@@ -47,7 +47,7 @@ roms-raw
 
 ---
 
-### 2. `roms-filtered` (~70GB, reduced sets)
+### 2. `roms-filtered` (~30GB, reduced sets)
 
 This stage filters ROMs down to more manageable sets:
 
