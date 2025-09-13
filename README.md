@@ -11,7 +11,7 @@ I’m sharing these scripts as a reference for others to adapt into their own wo
 
 ## Workflow Overview
 
-`External Drive` → `roms-raw` → `roms-filtered` → `roms-per-device`
+`External Drive` → `roms-raw` → `roms-filtered` → `roms-for-devices`
 
 Each stage reduces the size of the ROM sets and arranges them into the folder and naming structures expected by different emulators and front-ends.
 
@@ -70,28 +70,28 @@ Tools and DATs used:
 
 Example result: MAME reduced from **~50,000 ROMs (~1.2TB)** to **under 500 (~6GB)**. 
 
-Filtering is handled by `filter-*.sh` scripts (e.g. `filter-nointro.sh`):
+Filtering is handled by `filter-raw-roms.sh`, e.g. parsing No-Intro:
 
 ```bash
-input_dir="./roms-raw/No-Intro"
-output_dir="./roms-filtered/No-Intro"
-dat_file="./dat/proper1g1r-collection.zip"
+filter_nointro() {
+    echo "Filtering No-Intro files..."
 
-npx --yes igir@latest copy zip clean test \
-  --dat "${dat_file}" \
-  --input "${input_dir}" \
-  --output "${output_dir}" \
-  --dir-dat-name \
-  --input-checksum-max CRC32 \
-  --input-checksum-archives never \
-  --no-bios \
-  --single \
-  --only-retail \
-  --filter-region USA,WORLD \
-  --prefer-language EN \
-  --prefer-region USA,WORLD,EUR \
-  --prefer-revision newer \
-  --zip-exclude "*.{chd,iso}"
+    igir copy zip clean test \
+        --dat "./dat/proper1g1r-collection.zip" \
+        --input "${input_dir}/No-Intro" \
+        --output "${output_dir}/No-Intro" \
+        --dir-dat-name \
+        --input-checksum-max CRC32 \
+        --input-checksum-archives never \
+        --no-bios \
+        --single \
+        --only-retail \
+        --filter-region USA,WORLD \
+        --prefer-language EN \
+        --prefer-region USA,WORLD,EUR \
+        --prefer-revision newer \
+        --zip-exclude "*.{chd,iso}"
+}
 ```
 
 Example output:
@@ -134,7 +134,7 @@ roms-filtered
 
 ---
 
-### 3. `roms-per-device` (~25–30GB per device)
+### 3. `roms-for-devices` (~25–30GB per device)
 
 Finally, the `roms-filtered` directory is sorted and tailored for each target device.  
 
@@ -147,7 +147,7 @@ I currently use the following devices and front-ends:
 
 Each OS uses different emulators and annoyingly slightly different folder names. 
 
-The scripts `target-device.sh` handles this by selecting the correct MAME version and structure for each target device:
+The script `filter-for-devices.sh` handles this by selecting the correct MAME version and structure for each target device:
 
 ```bash
 case "$target" in
@@ -186,7 +186,7 @@ esac
 Output structure:
 
 ```
-roms-per-device
+roms-for-devices
 ├── RetroArch
 │   ├── atari2600
 │   ├── atari5200
@@ -215,5 +215,9 @@ roms-per-device
 ## Summary
 
 - **roms-raw** → Unfiltered collections from external storage  
+`filter-raw-roms.sh`
+↓
 - **roms-filtered** → Reduced using DATs (1G1R, best arcade titles)  
-- **roms-per-device** → Final device-specific structures, tuned for compatibility  
+`filter-for-devices.sh`
+↓
+- **roms-for-devices** → Final device-specific structures, tuned for compatibility  
