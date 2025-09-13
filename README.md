@@ -17,7 +17,7 @@ Each stage reduces the size of the ROM sets and arranges them into the folder an
 
 ---
 
-### 1. `roms-raw` (~2TB, mostly unfiltered)
+### 1. Downloads and manual sorting → `roms-raw` (~2TB, mostly unfiltered)
 
 This stage contains symlinks to a 5TB external drive with a mix of downloaded and hand-organized ROMs.  
 Sometimes I extract archives directly to `/mnt/archive/roms` and select only the roms/systems that I care about (especially with No-Intro and Redump).
@@ -47,7 +47,7 @@ roms-raw
 
 ---
 
-### 2. `roms-filtered` (~30GB, reduced sets)
+### 2. `filter-raw-roms.sh` → `roms-filtered` (~30GB, reduced sets)
 
 This stage filters ROMs down to more manageable sets:
 
@@ -134,7 +134,7 @@ roms-filtered
 
 ---
 
-### 3. `roms-for-devices` (~25–30GB per device)
+### 3. `filter-roms-for-devices.sh` → `roms-for-devices` (~25–30GB per device)
 
 Finally, the `roms-filtered` directory is sorted and tailored for each target device.  
 
@@ -215,9 +215,5 @@ roms-for-devices
 ## Summary
 
 - **roms-raw** → Unfiltered collections from external storage  
-`filter-raw-roms.sh`
-↓
 - **roms-filtered** → Reduced using DATs (1G1R, best arcade titles)  
-`filter-roms-for-devices.sh`
-↓
 - **roms-for-devices** → Final device-specific structures, tuned for compatibility  
